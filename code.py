@@ -8,8 +8,8 @@ import seaborn as sns
 import missingno as msno
 from tqdm import tqdm
 
-train_dataset = pd.read_csv(r'C:\Users\tunahan.aktas\Desktop\thy_train_data/Assessment Train Data.csv', na_values = ['?'])
-test_dataset = pd.read_csv(r'C:\Users\tunahan.aktas\Desktop\thy_train_data/Assessment Result File.csv', na_values = ['?'])
+train_dataset = pd.read_csv('train.csv', na_values = ['?'])
+test_dataset = pd.read_csv('test.csv', na_values = ['?'])
 
 train_dataset.columns = pd.Series(train_dataset.columns).apply(lambda x: x.lower())
 test_dataset.columns = pd.Series(test_dataset.columns).apply(lambda x: x.lower())
@@ -275,3 +275,5 @@ dummies = pd.get_dummies(df.select_dtypes(include = 'object'))
 df = df.drop(columns = df.select_dtypes(include = 'object').columns.to_list(), axis = 1)
 df = pd.concat([df, dummies], axis = 1)
 df = df.drop(columns = df.columns.to_list()[0:2])
+
+###### To be continued...
